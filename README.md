@@ -1,88 +1,93 @@
-# SQL-Schema-Analyzer
-An AI-driven tool for advanced SQL schema analysis, anomaly detection, and interactive reporting.
+# AdvancedSchemaAnalyzer
+AI-driven SQL schema analysis and reporting engine.
+Performs structural, relational, and statistical audits on large SQL schema files. Generates interactive HTML dashboards with deep insights into schema design, integrity, and security.
 
-This project provides a comprehensive analysis pipeline for large SQL schema files. It parses CREATE TABLE statements, performs structural and relational analysis, applies machine learning models for anomaly detection, and generates an interactive HTML report for schema audit and optimization.
+# Overview
+AdvancedSchemaAnalyzer is designed to help data engineers, architects, and security analysts audit, visualize, and optimize complex database schemas. It supports:
 
-Features
-Structural evaluation of tables, columns, indexes, and constraints
+Pattern-aware SQL parsing
 
-Detection of schema design anomalies using statistical models
+Graph-based relationship analysis
 
-Relational integrity checks with cycle detection and graph centrality
+Anomaly detection using unsupervised machine learning
 
-Identification of sensitive data fields based on semantic heuristics
+Automatic detection of schema flaws and design anti-patterns
 
-Clustering of similar tables using unsupervised learning
+HTML report generation with embedded charts and diagrams
 
-Fully rendered HTML report with embedded visualizations and findings
+# Features
+Analysis Capabilities
+Structural Analysis
 
-Technologies
-Python 3
+Column count outlier detection
 
-SQLParse
+Index coverage evaluation
 
-NetworkX
+Relational Analysis
 
-Scikit-learn
+Foreign key graph modeling
 
-Plotly
+Cycle detection and centrality checks
 
-PyVis
+Statistical Modeling
 
-Jinja2
+Unsupervised clustering (DBSCAN)
 
-Multiprocessing
+Outlier detection (IsolationForest)
 
-Use Case
-Ideal for teams working with large or complex database schemas who need to:
+Security Review
 
-Identify design flaws, bottlenecks, or non-normalized structures
+Sensitive data field detection
 
-Audit schema for security and compliance risks
+Flagging of potential compliance risks
 
-Generate actionable insights for database optimization
+# Output
+schema_analysis_report.html: Full audit report (interactive)
 
-Create shareable, visual reports for internal reviews or documentation
+relationships.html: Standalone foreign key graph viewer
 
-Output
-schema_analysis_report.html: Full dashboard with metrics, issue breakdown, and visualizations
+# Technologies Used
+Purpose	Library
+SQL Parsing	sqlparse
+Data Modeling	pydantic
+Graph Analysis	networkx
+Clustering & ML	scikit-learn
+Visualization	plotly, pyvis
+Report Generation	jinja2
+Parallel Parsing	multiprocessing
 
-relationships.html: Interactive network graph of table relationships
+# Project Design
+# What's Working Well
+Clean, modular architecture with a class-based pipeline
 
+Efficient SQL parsing using memory mapping and parallelization
 
-Project Structure and Design Strengths
-What’s Solid
-Modular class-based design with clear method separation
+Semantic tagging of columns (e.g., sensitive, identifier)
 
-Parallel processing for efficient handling of large files
+Use of graph theory for schema dependency evaluation
 
-Context-aware SQL parsing logic using nested-state tracking
+Machine learning-backed structural clustering and anomaly detection
 
-Accurate column-type tagging using semantic heuristics
+Report templating with embedded charts and UI logic
 
-Effective use of graph theory for dependency and integrity checks
+# Recommended Improvements
+Area	Recommendation
+Constraint Handling	Improve parsing for CHECK, UNIQUE, and multi-column constraints
+SQL Coverage	Add support for ALTER, VIEW, TRIGGER, and PROCEDURE
+Live DB Support	Integrate SQLAlchemy for runtime schema inspection
+Configurable Rules	YAML/JSON-based rule customization or CLI flags
+Testing	Add unit and integration tests
+CLI Enhancements	Use argparse for argument parsing and custom output locations
+CI/CD	Add GitHub Actions for linting, testing, and builds
+Data Profiling	Optionally accept data samples for further inference
+Plugin System	Hookable architecture for custom checks and metrics
+Export Options	Add JSON/CSV export for CI pipelines or audit archives
 
-Unsupervised ML models for clustering and anomaly detection
+# Use Cases
+Internal DB schema review before production rollout
 
-Interactive report generation with modern visual libraries
+Security and compliance audits for regulated data systems
 
-What Can Be Improved or Added
-Constraint Parsing Expansion: Currently minimal; should handle PRIMARY KEY, UNIQUE, CHECK, DEFAULT, and complex FOREIGN KEY clauses more explicitly
+Optimization review of existing enterprise schemas
 
-More SQL Statement Support: ALTER TABLE, INDEX, VIEW, TRIGGER, and PROCEDURE parsing
-
-ORM Integration: Optional support to connect to a live DB and analyze the introspected schema (SQLAlchemy or direct INFORMATION_SCHEMA)
-
-Unit Tests: Add unit and integration tests for parsers, analyzers, and metrics
-
-CLI Interface: Argparse-based CLI for file input, config toggles, and custom output paths
-
-Configurable Rules Engine: Move rule toggles into a config file or CLI flags
-
-Data Sample Input: Optional CSV or DB sample analysis to infer actual usage stats
-
-CI/CD Integration: Include GitHub Actions or similar for auto-lint, test, and deploy
-
-Plugin Hooks: Framework for custom checks via plugins (security, compliance, naming)
-
-Export Options: Add JSON or CSV exports for CI integration and audits
+Integration into CI pipelines for continuous schema analysis
