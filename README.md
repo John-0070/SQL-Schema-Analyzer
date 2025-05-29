@@ -71,16 +71,25 @@ Machine learning-backed structural clustering and anomaly detection
 Report templating with embedded charts and UI logic
 
 # Recommended Improvements
-Area	Recommendation
+# Area	Recommendation
 Constraint Handling	Improve parsing for CHECK, UNIQUE, and multi-column constraints
+
 SQL Coverage	Add support for ALTER, VIEW, TRIGGER, and PROCEDURE
+
 Live DB Support	Integrate SQLAlchemy for runtime schema inspection
+
 Configurable Rules	YAML/JSON-based rule customization or CLI flags
+
 Testing	Add unit and integration tests
+
 CLI Enhancements	Use argparse for argument parsing and custom output locations
+
 CI/CD	Add GitHub Actions for linting, testing, and builds
+
 Data Profiling	Optionally accept data samples for further inference
+
 Plugin System	Hookable architecture for custom checks and metrics
+
 Export Options	Add JSON/CSV export for CI pipelines or audit archives
 
 # Use Cases
