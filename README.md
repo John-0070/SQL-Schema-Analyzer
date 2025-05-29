@@ -49,13 +49,7 @@ schema_analysis_report.html: Full dashboard with metrics, issue breakdown, and v
 
 relationships.html: Interactive network graph of table relationships
 
-Getting Started
-bash
-Copy
-Edit
-git clone https://github.com/yourname/AdvancedSchemaAnalyzer.git
-cd AdvancedSchemaAnalyzer
-python3 main.py large_schema.sql
+
 Project Structure and Design Strengths
 What’s Solid
 Modular class-based design with clear method separation
